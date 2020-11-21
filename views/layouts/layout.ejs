@@ -4,7 +4,252 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mybrary</title>
+  <base href="/">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.2rem;
+    }
+    body{
+      background: linear-gradient(#e66465, #9198e5);
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    header{
+      display: grid;
+      justify-items: center;
+      grid-row-start: 1;
+      grid-row-end: span 3;
+      align-self: end;
+    }
+    nav{
+      display: grid;      
+      justify-items: center;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    button{
+      width: 100px;
+      height: 25px;
+      color: #212558;
+      font-size: 1rem;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #212558;
+      font-family: 'Work Sans', sans-serif;
+      cursor: pointer;
+    }
+    button:hover{
+      color: #ffffff;
+      background-color: #212558;
+    }
+    .button{
+      text-decoration: none;
+      text-align: center;
+      width: 100px;
+      height: 25px;
+      color: #212558;
+      font-size: 1rem;
+      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #212558;
+    }
+    .button:hover{
+      color: #ffffff;
+      background-color: #212558;
+    }
+    .title{
+      align-self: center;
+      grid-row-start: span 2;
+      font-family: 'Lobster', cursive;
+      font-size: 4rem;
+      text-decoration: none;
+      color:#212558;
+      text-shadow: 2px 2px 1px #0a0b1b;
+    }
+    ul{
+      width: 80vw;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-row-start: 4;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+      list-style-type: none;
+    }
+    li{
+      justify-self: center;
+      align-self: center;
+    }
+    li a{
+      text-decoration: none;
+      color:#212558;
+    }
+    li a:hover{
+      text-decoration: underline;
+    }
+    h2{
+      margin: 0;
+      padding-left: 40px;
+      grid-row-start: 4;
+      grid-row-end: span 1;
+      align-self: center;
+      color:#212558;
+    }
+    h3{
+      color:#212558;
+    }
+    .img-container{
+      justify-self: center;
+      width: 90vw;
+      grid-row-start: 5;
+      grid-row-end: span 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+    }
+    .img-container2{
+      grid-row-start: 2;
+      grid-row-end: span 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+    }
+    .single-image{
+      display: grid;
+      grid-gap: 10px;
+    }
+    .single-image p{
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+      margin: 0;
+      font-size: 1rem;
+      color:#212558;
+    }
+    .single-image img{
+      justify-self: center;
+      align-self: center;
+      width: 70%;
+      height: auto;
+      box-shadow: 5px 5px 40px #353131;
+    }
+    .search-authors{
+      width: 80vw;
+      justify-self: center;
+      display: grid;
+      grid-row-start: 5;
+      grid-row-end: span 3;
+    }
+    .authors-list{
+      display: grid;
+    }
+    .authors-list div{
+      color:#212558;
+    }
+    .form-search-authors{
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr 5fr;
+      grid-gap: 10px;
+    }
+    .form-search-authors label{
+      color:#212558;
+      grid-column-start: 1;
+      justify-self: center;
+      align-self: center;
+    }
+    .form-search-authors input{
+      grid-column-start: 2;
+      align-self: center;
+    }
+    .form-search-authors button{
+      grid-column-start: 3;
+      justify-self: center;
+      align-self: center;
+    }
+    .form-new-author{
+      display: grid;
+      grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
+      grid-gap: 10px;
+      align-items: start;
+    }
+    .form-new-author label{
+      color:#212558;
+      grid-column-start: 1;
+      justify-self: center;
+    }
+    .form-new-author input{
+      height: 20px;
+      grid-column-start: 2;
+    }
+    .form-new-author button{
+      grid-column-start: 3;
+      grid-row-start: 1;
+    }
+    .form-new-author .button{
+      grid-column-start: 4;
+    }
+    .form-search-book{
+      color:#212558;
+      grid-row-start: 1;
+      grid-row-end: span 1;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      padding: 10px;
+    }
+    .form-search-book div{
+      grid-column-start: 1;
+      grid-column-end: span 1;
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-search-book button{
+      justify-self: center;
+      grid-column-start: 2;
+      grid-row-start: 2;
+    }
+    .search-authors2{
+      width: 80vw;
+      justify-self: center;
+      display: grid;
+      grid-gap: 10px;
+      grid-row-start: 5;
+      grid-row-end: span 3;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .search-authors2 div{
+      color:#212558;
+      grid-column-start: 1;
+      grid-column-end: span 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .description-container{
+      grid-row-end: span 2;
+    }
+    .search-authors2 .button{
+      grid-row-start: 8;
+      grid-column-start: 2;
+      justify-self: center;
+    }
+    .search-authors2 button{
+      grid-row-start: 8;
+      grid-column-start: 1;
+      justify-self: center;
+    }
+    .footer{
+      grid-row-start: 8;
+    }
+  </style>
+  <title>Library_project</title>
 </head>
 <body>
   <%- include('../partials/header.ejs') %>
